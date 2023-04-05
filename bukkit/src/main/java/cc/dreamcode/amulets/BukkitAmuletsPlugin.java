@@ -2,7 +2,6 @@ package cc.dreamcode.amulets;
 
 import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
-import cc.dreamcode.amulets.user.UserRepository;
 import cc.dreamcode.command.bukkit.BukkitCommandProvider;
 import cc.dreamcode.menu.bukkit.BukkitMenuProvider;
 import cc.dreamcode.menu.bukkit.okaeri.MenuBuilderSerdes;
@@ -15,10 +14,7 @@ import cc.dreamcode.platform.bukkit.component.ConfigurationComponentResolver;
 import cc.dreamcode.platform.bukkit.component.ListenerComponentResolver;
 import cc.dreamcode.platform.bukkit.component.RunnableComponentResolver;
 import cc.dreamcode.platform.component.ComponentManager;
-import cc.dreamcode.platform.persistence.resolver.DocumentPersistenceComponentResolver;
-import cc.dreamcode.platform.persistence.resolver.DocumentRepositoryComponentResolver;
 import eu.okaeri.configs.serdes.OkaeriSerdesPack;
-import eu.okaeri.persistence.document.DocumentPersistence;
 import eu.okaeri.tasker.bukkit.BukkitTasker;
 import lombok.Getter;
 import lombok.NonNull;
@@ -50,16 +46,7 @@ public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
                     bukkitCommandProvider.setRequiredPlayerMessage(messageConfig.notPlayer);
                 }));
 
-        componentManager.registerComponent(PluginConfig.class, pluginConfig -> {
-            // register persistence + repositories
-            this.registerInjectable(pluginConfig.storageConfig);
-
-            componentManager.registerResolver(DocumentPersistenceComponentResolver.class);
-            componentManager.registerResolver(DocumentRepositoryComponentResolver.class);
-
-            componentManager.registerComponent(DocumentPersistence.class);
-            componentManager.registerComponent(UserRepository.class);
-        });
+        componentManager.registerComponent(PluginConfig.class);
     }
 
     @Override

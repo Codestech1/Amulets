@@ -1,11 +1,16 @@
 package cc.dreamcode.amulets.config;
 
+import cc.dreamcode.amulets.amulet.Amulet;
 import cc.dreamcode.platform.bukkit.component.configuration.Configuration;
+import cc.dreamcode.utilities.builder.ListBuilder;
+import cc.dreamcode.utilities.bukkit.builder.ItemBuilder;
+import com.cryptomorin.xseries.XMaterial;
+import com.cryptomorin.xseries.XPotion;
 import eu.okaeri.configs.OkaeriConfig;
-import eu.okaeri.configs.annotation.Header;
-import eu.okaeri.configs.annotation.NameModifier;
-import eu.okaeri.configs.annotation.NameStrategy;
-import eu.okaeri.configs.annotation.Names;
+import eu.okaeri.configs.annotation.*;
+import org.bukkit.potion.PotionEffect;
+
+import java.util.List;
 
 @Configuration(
         child = "config.yml"
@@ -14,4 +19,21 @@ import eu.okaeri.configs.annotation.Names;
 @Names(strategy = NameStrategy.HYPHEN_CASE, modifier = NameModifier.TO_LOWER_CASE)
 public class PluginConfig extends OkaeriConfig {
 
+    @Comment("Lista amuletów, które ma plugin zarejestrować")
+    public List<Amulet> amulets = new ListBuilder<Amulet>()
+            .add(
+                    new Amulet(
+                            "",
+                            new ItemBuilder(XMaterial.FIRE_CHARGE.parseMaterial())
+                                    .setName("&6Amulet Ognia")
+                                    .fixColors()
+                                    .toItemStack(),
+                            true,
+                            true,
+                            new ListBuilder<PotionEffect>()
+                                    .add(XPotion.FIRE_RESISTANCE.buildPotionEffect(5000, 0))
+                                    .build()
+                    )
+            )
+            .build();
 }

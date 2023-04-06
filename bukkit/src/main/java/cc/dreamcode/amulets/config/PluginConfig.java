@@ -23,7 +23,7 @@ public class PluginConfig extends OkaeriConfig {
     public List<Amulet> amulets = new ListBuilder<Amulet>()
             .add(
                     new Amulet(
-                            "",
+                            "fire",
                             new ItemBuilder(XMaterial.FIRE_CHARGE.parseMaterial())
                                     .setName("&6Amulet Ognia")
                                     .fixColors()
@@ -31,7 +31,7 @@ public class PluginConfig extends OkaeriConfig {
                             true,
                             true,
                             new ListBuilder<PotionEffect>()
-                                    .add(XPotion.FIRE_RESISTANCE.buildPotionEffect(5000, 0))
+                                    .add(XPotion.FIRE_RESISTANCE.buildPotionEffect(5000, 1))
                                     .build()
                     )
             )

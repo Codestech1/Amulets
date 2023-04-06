@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 public class Amulet {
     private final String amuletId;
+    private final String amuletDisplayName;
     private final ItemStack itemStack;
     private final boolean
             hideEnchantments,

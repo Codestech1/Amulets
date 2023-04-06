@@ -24,6 +24,7 @@ public class PluginConfig extends OkaeriConfig {
             .add(
                     new Amulet(
                             "fire",
+                            "Amulet Ognia",
                             new ItemBuilder(XMaterial.FIRE_CHARGE.parseMaterial())
                                     .setName("&6Amulet Ognia")
                                     .fixColors()

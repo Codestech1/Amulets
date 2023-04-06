@@ -19,6 +19,7 @@ public class AmuletSerdes implements ObjectSerializer<Amulet> {
     @Override
     public void serialize(@NonNull Amulet object, @NonNull SerializationData data, @NonNull GenericsDeclaration generics) {
         data.add("id", object.getAmuletId());
+        data.add("displayName", object.getAmuletDisplayName());
         data.add("itemStack", object.getItemStack());
         data.add("hideEnchantments", object.isHideEnchantments());
         data.add("hideAttributes", object.isHideAttributes());
@@ -28,10 +29,11 @@ public class AmuletSerdes implements ObjectSerializer<Amulet> {
     @Override
     public Amulet deserialize(@NonNull DeserializationData data, @NonNull GenericsDeclaration generics) {
         String id = data.get("id", String.class);
+        String displayName = data.get("displayName", String.class);
         ItemStack itemStack = data.get("itemStack", ItemStack.class);
         boolean hideEnchantments = data.get("hideEnchantments", boolean.class);
         boolean hideAttributes = data.get("hideAttributes", boolean.class);
         List<PotionEffect> amuletEffectList = data.getAsList("amuletEffects", PotionEffect.class);
-        return new Amulet(id, itemStack, hideEnchantments, hideAttributes, amuletEffectList);
+        return new Amulet(id, displayName, itemStack, hideEnchantments, hideAttributes, amuletEffectList);
     }
 }

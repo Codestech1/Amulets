@@ -19,17 +19,17 @@ public class AmuletSerdes implements ObjectSerializer<Amulet> {
     @Override
     public void serialize(@NonNull Amulet object, @NonNull SerializationData data, @NonNull GenericsDeclaration generics) {
         data.add("id", object.getAmuletId());
-        data.add("displayName", object.getAmuletDisplayName());
-        data.add("itemStack", object.getItemStack());
-        data.add("amuletEffects", object.getAmuletEffects());
+        data.add("display-name", object.getAmuletDisplayName());
+        data.add("itemstack", object.getItemStack());
+        data.add("amulet-effects", object.getAmuletEffects());
     }
 
     @Override
     public Amulet deserialize(@NonNull DeserializationData data, @NonNull GenericsDeclaration generics) {
         String id = data.get("id", String.class);
-        String displayName = data.get("displayName", String.class);
-        ItemStack itemStack = data.get("itemStack", ItemStack.class);
-        List<PotionEffect> amuletEffectList = data.getAsList("amuletEffects", PotionEffect.class);
+        String displayName = data.get("display-name", String.class);
+        ItemStack itemStack = data.get("itemstack", ItemStack.class);
+        List<PotionEffect> amuletEffectList = data.getAsList("amulet-effects", PotionEffect.class);
         return new Amulet(id, displayName, itemStack, amuletEffectList);
     }
 }

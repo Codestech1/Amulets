@@ -70,10 +70,14 @@ public class AmuletGiveCommand extends BukkitCommand {
             }
 
             commandPlayer.getInventory().addItem(amulet.getItemStack());
+            if (this.pluginConfig.sendMessageReceived) {
+                this.messageConfig.amuletReceived.send(commandPlayer);
+            }
             return;
         }
 
         player.getInventory().addItem(amulet.getItemStack());
+        this.messageConfig.amuletGivenSuccess.send(player);
     }
 
     @Override

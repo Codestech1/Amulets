@@ -1,6 +1,7 @@
 package cc.dreamcode.amulets.controller;
 
 import cc.dreamcode.amulets.amulet.Amulet;
+import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
 import eu.okaeri.injector.annotation.Inject;
 import org.bukkit.entity.Player;
@@ -16,6 +17,7 @@ import java.util.List;
 public class AmuletsController implements Listener {
 
     private @Inject PluginConfig pluginConfig;
+    private @Inject MessageConfig messageConfig;
 
     @EventHandler
     public void onAmuletUse(PlayerInteractEvent event) {
@@ -49,5 +51,7 @@ public class AmuletsController implements Listener {
         for (PotionEffect effect : amulet.getAmuletEffects()) {
             effect.apply(player);
         }
+
+        this.messageConfig.amuletUsed.send(player);
     }
 }

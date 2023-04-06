@@ -36,4 +36,7 @@ public class PluginConfig extends OkaeriConfig {
                     )
             )
             .build();
+
+    @Comment("Czy ma się wyświetlać wiadomość dla gracza, który otrzymał amulet")
+    public boolean sendMessageReceived = true;
 }

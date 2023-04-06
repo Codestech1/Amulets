@@ -25,4 +25,7 @@ public class MessageConfig extends OkaeriConfig {
     public BukkitNotice notPlayer = new BukkitNotice(NoticeType.CHAT, "&4Nie jesteś graczem.");
     public BukkitNotice amuletNotFound = new BukkitNotice(NoticeType.CHAT, "&cNie znaleziono amuletu o podanej nazwie.");
     public BukkitNotice playerNotFound = new BukkitNotice(NoticeType.CHAT, "&cNie znaleziono gracza o podanej nazwie.");
+    public BukkitNotice amuletGivenSuccess = new BukkitNotice(NoticeType.CHAT, "&aDałeś {amulet} dla {player}");
+    public BukkitNotice amuletReceived = new BukkitNotice(NoticeType.CHAT, "&aOtzymałeś {amulet}");
+    public BukkitNotice amuletUsed = new BukkitNotice(NoticeType.CHAT, "&aUżyłeś {amulet}");
 }

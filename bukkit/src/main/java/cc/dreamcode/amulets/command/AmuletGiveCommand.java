@@ -39,6 +39,7 @@ public class AmuletGiveCommand extends BukkitCommand {
                             .put("usage", "/amuletgive <nazwa amuletu> [gracz]")
                             .build()
             );
+            return;
         }
 
         final String amuletId = args[0];

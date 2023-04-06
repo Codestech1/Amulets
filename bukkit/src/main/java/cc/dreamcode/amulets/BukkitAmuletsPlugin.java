@@ -50,9 +50,7 @@ public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
     }
 
     @Override
-    public void disable() {
-        // features need to be call when server is stopping
-    }
+    public void disable() {}
 
     @Override
     public @NonNull DreamVersion getDreamVersion() {

@@ -31,6 +31,10 @@ public class AmuletsController implements Listener {
         List<Amulet> amuletList = this.pluginConfig.amulets;
         Amulet amulet = null;
 
+        if (itemStack == null) {
+            return;
+        }
+
         for (Amulet amulets : amuletList) {
             ItemStack amuletItemStack = amulets.getItemStack().clone();
             amuletItemStack.setAmount(itemStack.getAmount());

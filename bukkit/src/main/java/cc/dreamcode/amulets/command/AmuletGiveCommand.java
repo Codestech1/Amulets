@@ -1,5 +1,6 @@
 package cc.dreamcode.amulets.command;
 
+import cc.dreamcode.amulets.BukkitAmuletsPlugin;
 import cc.dreamcode.amulets.amulet.Amulet;
 import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
@@ -10,7 +11,7 @@ import cc.dreamcode.utilities.builder.MapBuilder;
 import cc.dreamcode.utilities.bukkit.builder.ItemBuilder;
 import eu.okaeri.injector.annotation.Inject;
 import lombok.NonNull;
-import org.bukkit.Bukkit;
+import org.bukkit.Server;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 @RequiredPermission(permission = "dream-amulets.give")
 public class AmuletGiveCommand extends BukkitCommand {
 
+    private @Inject BukkitAmuletsPlugin bukkitAmuletsPlugin;
     private @Inject PluginConfig pluginConfig;
     private @Inject MessageConfig messageConfig;
 
@@ -69,7 +71,8 @@ public class AmuletGiveCommand extends BukkitCommand {
 
         if (useCommandPlayer) {
             String argCommandPlayer = args[1];
-            Player commandPlayer = Bukkit.getPlayer(argCommandPlayer);
+            Server server = this.bukkitAmuletsPlugin.getServer();
+            Player commandPlayer = server.getPlayer(argCommandPlayer);
 
             if (commandPlayer == null) {
                 this.messageConfig.playerNotFound.send(player);
@@ -118,7 +121,8 @@ public class AmuletGiveCommand extends BukkitCommand {
 
         if (args.length == 2) {
             String playerName = args[1];
-            List<Player> playerList = Bukkit.matchPlayer(playerName);
+            Server server = this.bukkitAmuletsPlugin.getServer();
+            List<Player> playerList = server.matchPlayer(playerName);
             return playerList.stream()
                     .map(Player::getName)
                     .collect(Collectors.toList());

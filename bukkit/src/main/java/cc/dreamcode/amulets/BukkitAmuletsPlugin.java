@@ -6,7 +6,6 @@ import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
 import cc.dreamcode.amulets.controller.AmuletsController;
 import cc.dreamcode.command.bukkit.BukkitCommandProvider;
-import cc.dreamcode.menu.bukkit.okaeri.MenuBuilderSerdes;
 import cc.dreamcode.notice.bukkit.BukkitNoticeProvider;
 import cc.dreamcode.notice.bukkit.okaeri_serdes.BukkitNoticeSerdes;
 import cc.dreamcode.platform.DreamVersion;
@@ -16,7 +15,6 @@ import cc.dreamcode.platform.bukkit.component.ConfigurationComponentResolver;
 import cc.dreamcode.platform.bukkit.component.ListenerComponentResolver;
 import cc.dreamcode.platform.component.ComponentManager;
 import eu.okaeri.configs.serdes.OkaeriSerdesPack;
-import eu.okaeri.tasker.bukkit.BukkitTasker;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -31,7 +29,6 @@ public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
 
     @Override
     public void enable(@NonNull ComponentManager componentManager) {
-        this.registerInjectable(BukkitTasker.newPool(this));
         this.registerInjectable(BukkitNoticeProvider.create(this));
         this.registerInjectable(BukkitCommandProvider.create(this, this.getInjector()));
 
@@ -62,15 +59,7 @@ public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
     public @NonNull OkaeriSerdesPack getBukkitConfigurationSerdesPack() {
         return registry -> {
             registry.register(new BukkitNoticeSerdes());
-            registry.register(new MenuBuilderSerdes());
             registry.register(new AmuletSerdes());
-        };
-    }
-
-    @Override
-    public @NonNull OkaeriSerdesPack getBukkitPersistenceSerdesPack() {
-        return registry -> {
-
         };
     }
 

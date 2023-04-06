@@ -28,8 +28,6 @@ public class PluginConfig extends OkaeriConfig {
                             new ItemBuilder(XMaterial.FIRE_CHARGE.parseMaterial())
                                     .setName("&6Amulet Ognia")
                                     .toItemStack(),
-                            true,
-                            true,
                             new ListBuilder<PotionEffect>()
                                     .add(XPotion.FIRE_RESISTANCE.buildPotionEffect(5000, 1))
                                     .build()

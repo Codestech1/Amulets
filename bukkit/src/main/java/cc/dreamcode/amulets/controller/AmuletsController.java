@@ -4,6 +4,7 @@ import cc.dreamcode.amulets.amulet.Amulet;
 import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
 import cc.dreamcode.utilities.builder.MapBuilder;
+import cc.dreamcode.utilities.bukkit.builder.ItemBuilder;
 import eu.okaeri.injector.annotation.Inject;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -37,8 +38,10 @@ public class AmuletsController implements Listener {
         }
 
         for (Amulet amulets : amuletList) {
-            ItemStack amuletItemStack = amulets.getItemStack().clone();
-            amuletItemStack.setAmount(itemStack.getAmount());
+            ItemStack amuletItemStack = ItemBuilder.of(amulets.getItemStack())
+                    .fixColors()
+                    .setAmount(itemStack.getAmount())
+                    .toItemStack();
             if (!itemStack.equals(amuletItemStack)) {
                 continue;
             }

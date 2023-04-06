@@ -7,11 +7,13 @@ import cc.dreamcode.command.annotations.RequiredPermission;
 import cc.dreamcode.command.annotations.RequiredPlayer;
 import cc.dreamcode.command.bukkit.BukkitCommand;
 import cc.dreamcode.utilities.builder.MapBuilder;
+import cc.dreamcode.utilities.bukkit.builder.ItemBuilder;
 import eu.okaeri.injector.annotation.Inject;
 import lombok.NonNull;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +63,10 @@ public class AmuletGiveCommand extends BukkitCommand {
             return;
         }
 
+        ItemStack itemStack = ItemBuilder.of(amulet.getItemStack())
+                .fixColors()
+                .toItemStack();
+
         if (useCommandPlayer) {
             String argCommandPlayer = args[1];
             Player commandPlayer = Bukkit.getPlayer(argCommandPlayer);
@@ -70,7 +76,7 @@ public class AmuletGiveCommand extends BukkitCommand {
                 return;
             }
 
-            commandPlayer.getInventory().addItem(amulet.getItemStack());
+            commandPlayer.getInventory().addItem(itemStack);
             if (this.pluginConfig.sendMessageReceived) {
                 this.messageConfig.amuletGivenSuccess.send(
                         player,
@@ -89,7 +95,7 @@ public class AmuletGiveCommand extends BukkitCommand {
             return;
         }
 
-        player.getInventory().addItem(amulet.getItemStack());
+        player.getInventory().addItem(itemStack);
         this.messageConfig.amuletReceived.send(
                 player,
                 new MapBuilder<String, Object>()

@@ -13,7 +13,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredPlayer
 @RequiredPermission(permission = "dream-amulets.give")
@@ -76,6 +78,26 @@ public class AmuletGiveCommand extends BukkitCommand {
 
     @Override
     public List<String> tab(@NonNull CommandSender sender, @NonNull String[] args) {
+        if (args.length == 1) {
+            String amuletArg = args[0];
+            List<Amulet> amuletList = this.pluginConfig.amulets;
+            List<String> argList = new ArrayList<>();
+            for (Amulet amulet : amuletList) {
+                if (amulet.getAmuletId().startsWith(amuletArg)) {
+                    argList.add(amulet.getAmuletId());
+                }
+            }
+            return argList;
+        }
+
+        if (args.length == 2) {
+            String playerName = args[1];
+            List<Player> playerList = Bukkit.matchPlayer(playerName);
+            return playerList.stream()
+                    .map(Player::getName)
+                    .collect(Collectors.toList());
+        }
+
         return null;
     }
 }

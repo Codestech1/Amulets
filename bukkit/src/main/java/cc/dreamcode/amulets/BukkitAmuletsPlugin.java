@@ -1,5 +1,6 @@
 package cc.dreamcode.amulets;
 
+import cc.dreamcode.amulets.amulet.AmuletSerdes;
 import cc.dreamcode.amulets.command.AmuletGiveCommand;
 import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
@@ -62,6 +63,7 @@ public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
         return registry -> {
             registry.register(new BukkitNoticeSerdes());
             registry.register(new MenuBuilderSerdes());
+            registry.register(new AmuletSerdes());
         };
     }
 

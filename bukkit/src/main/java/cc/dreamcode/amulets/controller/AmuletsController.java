@@ -19,8 +19,8 @@ public class AmuletsController implements Listener {
 
     @EventHandler
     public void onAmuletUse(PlayerInteractEvent event) {
-        if (event.getAction() != Action.RIGHT_CLICK_AIR ||
-                event.getAction() != Action.RIGHT_CLICK_BLOCK) {
+        if (!(event.getAction().equals(Action.RIGHT_CLICK_AIR) ||
+                event.getAction().equals(Action.RIGHT_CLICK_BLOCK))) {
             return;
         }
 

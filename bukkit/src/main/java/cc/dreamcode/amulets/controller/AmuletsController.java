@@ -12,9 +12,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
 
-import java.util.List;
+import java.util.Optional;
 
 public class AmuletsController implements Listener {
 
@@ -30,35 +29,30 @@ public class AmuletsController implements Listener {
 
         Player player = event.getPlayer();
         ItemStack itemStack = event.getItem();
-        List<Amulet> amuletList = this.pluginConfig.amulets;
-        Amulet amulet = null;
 
         if (itemStack == null) {
             return;
         }
 
-        for (Amulet amulets : amuletList) {
-            ItemStack amuletItemStack = ItemBuilder.of(amulets.getItemStack())
-                    .fixColors()
-                    .setAmount(itemStack.getAmount())
-                    .toItemStack();
-            if (!itemStack.equals(amuletItemStack)) {
-                continue;
-            }
-            amulet = amulets;
-            break;
-        }
+        Optional<Amulet> optAmulet = this.pluginConfig.amulets
+                .stream()
+                .filter(amulet -> {
+                    ItemStack amuletItemStack = ItemBuilder.of(amulet.getItemStack())
+                            .fixColors()
+                            .setAmount(itemStack.getAmount())
+                            .toItemStack();
+                    return itemStack.equals(amuletItemStack);
+                })
+                .findFirst();
 
-        if (amulet == null) {
+        if (!optAmulet.isPresent()) {
             return;
         }
 
+        Amulet amulet = optAmulet.get();
         event.setCancelled(true);
         itemStack.setAmount(itemStack.getAmount() - 1);
-
-        for (PotionEffect effect : amulet.getAmuletEffects()) {
-            effect.apply(player);
-        }
+        amulet.getAmuletEffects().forEach(potionEffect -> potionEffect.apply(player));
 
         this.messageConfig.amuletUsed.send(
                 player,

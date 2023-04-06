@@ -16,8 +16,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredPlayer
@@ -47,24 +47,19 @@ public class AmuletGiveCommand extends BukkitCommand {
         }
 
         final String amuletId = args[0];
-        Amulet amulet = null;
-
         final boolean useCommandPlayer = args.length > 1;
 
-        List<Amulet> amuletList = this.pluginConfig.amulets;
-        for (Amulet amulets : amuletList) {
-            if (!amulets.getAmuletId().equals(amuletId)) {
-                continue;
-            }
-            amulet = amulets;
-            break;
-        }
+        Optional<Amulet> optAmulet = this.pluginConfig.amulets
+                .stream()
+                .filter(amulets -> amulets.getAmuletId().equals(amuletId))
+                .findFirst();
 
-        if (amulet == null) {
+        if (!optAmulet.isPresent()) {
             this.messageConfig.amuletNotFound.send(player);
             return;
         }
 
+        Amulet amulet = optAmulet.get();
         ItemStack itemStack = ItemBuilder.of(amulet.getItemStack())
                 .fixColors()
                 .toItemStack();
@@ -109,14 +104,11 @@ public class AmuletGiveCommand extends BukkitCommand {
     public List<String> tab(@NonNull CommandSender sender, @NonNull String[] args) {
         if (args.length == 1) {
             String amuletArg = args[0];
-            List<Amulet> amuletList = this.pluginConfig.amulets;
-            List<String> argList = new ArrayList<>();
-            for (Amulet amulet : amuletList) {
-                if (amulet.getAmuletId().startsWith(amuletArg)) {
-                    argList.add(amulet.getAmuletId());
-                }
-            }
-            return argList;
+            return this.pluginConfig.amulets
+                    .stream()
+                    .map(Amulet::getAmuletId)
+                    .filter(amuletId -> amuletId.startsWith(amuletArg))
+                    .collect(Collectors.toList());
         }
 
         if (args.length == 2) {

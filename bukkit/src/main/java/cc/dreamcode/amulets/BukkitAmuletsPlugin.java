@@ -2,6 +2,7 @@ package cc.dreamcode.amulets;
 
 import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
+import cc.dreamcode.amulets.controller.AmuletsController;
 import cc.dreamcode.command.bukkit.BukkitCommandProvider;
 import cc.dreamcode.menu.bukkit.BukkitMenuProvider;
 import cc.dreamcode.menu.bukkit.okaeri.MenuBuilderSerdes;
@@ -47,6 +48,9 @@ public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
                 }));
 
         componentManager.registerComponent(PluginConfig.class);
+
+
+        componentManager.registerComponent(AmuletsController.class);
     }
 
     @Override

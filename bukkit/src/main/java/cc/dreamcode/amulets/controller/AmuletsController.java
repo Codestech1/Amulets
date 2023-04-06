@@ -43,6 +43,7 @@ public class AmuletsController implements Listener {
             return;
         }
 
+        event.setCancelled(true);
         itemStack.setAmount(itemStack.getAmount() - 1);
 
         for (PotionEffect effect : amulet.getAmuletEffects()) {

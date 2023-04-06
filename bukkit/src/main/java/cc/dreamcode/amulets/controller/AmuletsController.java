@@ -3,6 +3,7 @@ package cc.dreamcode.amulets.controller;
 import cc.dreamcode.amulets.amulet.Amulet;
 import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
+import cc.dreamcode.utilities.builder.MapBuilder;
 import eu.okaeri.injector.annotation.Inject;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -56,6 +57,11 @@ public class AmuletsController implements Listener {
             effect.apply(player);
         }
 
-        this.messageConfig.amuletUsed.send(player);
+        this.messageConfig.amuletUsed.send(
+                player,
+                new MapBuilder<String, Object>()
+                        .put("amulet", amulet.getAmuletDisplayName())
+                        .build()
+        );
     }
 }

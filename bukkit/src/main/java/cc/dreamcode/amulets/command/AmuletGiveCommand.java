@@ -72,13 +72,30 @@ public class AmuletGiveCommand extends BukkitCommand {
 
             commandPlayer.getInventory().addItem(amulet.getItemStack());
             if (this.pluginConfig.sendMessageReceived) {
-                this.messageConfig.amuletReceived.send(commandPlayer);
+                this.messageConfig.amuletGivenSuccess.send(
+                        player,
+                        new MapBuilder<String, Object>()
+                                .put("amulet", amulet.getAmuletDisplayName())
+                                .put("player", commandPlayer.getName())
+                                .build()
+                );
+                this.messageConfig.amuletReceived.send(
+                        commandPlayer,
+                        new MapBuilder<String, Object>()
+                                .put("amulet", amulet.getAmuletDisplayName())
+                                .build()
+                );
             }
             return;
         }
 
         player.getInventory().addItem(amulet.getItemStack());
-        this.messageConfig.amuletGivenSuccess.send(player);
+        this.messageConfig.amuletReceived.send(
+                player,
+                new MapBuilder<String, Object>()
+                        .put("amulet", amulet.getAmuletDisplayName())
+                        .build()
+        );
     }
 
     @Override

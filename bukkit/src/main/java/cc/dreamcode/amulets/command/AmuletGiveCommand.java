@@ -72,7 +72,7 @@ public class AmuletGiveCommand extends BukkitCommand {
         if (useCommandPlayer) {
             String argCommandPlayer = args[1];
             Server server = this.bukkitAmuletsPlugin.getServer();
-            Player commandPlayer = server.getPlayer(argCommandPlayer);
+            Player commandPlayer = server.getPlayerExact(argCommandPlayer);
 
             if (commandPlayer == null) {
                 this.messageConfig.playerNotFound.send(player);

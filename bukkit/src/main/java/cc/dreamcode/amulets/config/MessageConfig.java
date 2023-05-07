@@ -28,4 +28,8 @@ public class MessageConfig extends OkaeriConfig {
     public BukkitNotice amuletGivenSuccess = new BukkitNotice(NoticeType.CHAT, "&aDałeś {amulet} dla {player}");
     public BukkitNotice amuletReceived = new BukkitNotice(NoticeType.CHAT, "&aOtzymałeś {amulet}");
     public BukkitNotice amuletUsed = new BukkitNotice(NoticeType.CHAT, "&aUżyłeś {amulet}");
+
+    public BukkitNotice amuletsEnabled = new BukkitNotice(NoticeType.CHAT, "&aWłączyłeś globalnie amulety");
+
+    public BukkitNotice amuletsDisabled = new BukkitNotice(NoticeType.CHAT, "&cWyłączyłeś globalnie amulety");
 }

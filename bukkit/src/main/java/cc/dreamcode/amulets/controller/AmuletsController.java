@@ -1,5 +1,6 @@
 package cc.dreamcode.amulets.controller;
 
+import cc.dreamcode.amulets.BukkitAmuletsPlugin;
 import cc.dreamcode.amulets.amulet.Amulet;
 import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
@@ -18,6 +19,7 @@ import java.util.Optional;
 
 public class AmuletsController implements Listener {
 
+    private @Inject BukkitAmuletsPlugin bukkitAmuletsPlugin;
     private @Inject PluginConfig pluginConfig;
     private @Inject MessageConfig messageConfig;
     private @Inject PermanentEffectsManager effectsManager;
@@ -51,8 +53,12 @@ public class AmuletsController implements Listener {
             return;
         }
 
-        Amulet amulet = optAmulet.get();
         event.setCancelled(true);
+        if (!bukkitAmuletsPlugin.isAmuletsEnabled()) {
+            return;
+        }
+
+        Amulet amulet = optAmulet.get();
         itemStack.setAmount(itemStack.getAmount() - 1);
         amulet.getAmuletEffects().forEach(potionEffect -> potionEffect.apply(player));
 

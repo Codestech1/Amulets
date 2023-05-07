@@ -2,6 +2,7 @@ package cc.dreamcode.amulets;
 
 import cc.dreamcode.amulets.amulet.AmuletSerdes;
 import cc.dreamcode.amulets.command.AmuletGiveCommand;
+import cc.dreamcode.amulets.command.DisableAmuletsCommand;
 import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
 import cc.dreamcode.amulets.controller.AmuletsController;
@@ -19,10 +20,15 @@ import cc.dreamcode.platform.component.ComponentManager;
 import eu.okaeri.configs.serdes.OkaeriSerdesPack;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
 
     @Getter private static BukkitAmuletsPlugin bukkitAmuletsPlugin;
+
+    @Getter
+    @Setter
+    private boolean amuletsEnabled = true;
 
     @Override
     public void load(@NonNull ComponentManager componentManager) {
@@ -50,6 +56,7 @@ public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
 
         componentManager.registerComponent(AmuletsController.class);
         componentManager.registerComponent(AmuletGiveCommand.class);
+        componentManager.registerComponent(DisableAmuletsCommand.class);
     }
 
     @Override

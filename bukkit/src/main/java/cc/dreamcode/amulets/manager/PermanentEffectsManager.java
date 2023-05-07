@@ -1,5 +1,6 @@
 package cc.dreamcode.amulets.manager;
 
+import cc.dreamcode.amulets.BukkitAmuletsPlugin;
 import cc.dreamcode.amulets.amulet.Amulet;
 import cc.dreamcode.amulets.config.PluginConfig;
 import cc.dreamcode.platform.bukkit.component.scheduler.Scheduler;
@@ -16,10 +17,15 @@ import org.bukkit.potion.PotionEffect;
 @Scheduler(async = false, delay = 0, interval = 20)
 public class PermanentEffectsManager implements Runnable {
 
+    private @Inject BukkitAmuletsPlugin bukkitAmuletsPlugin;
     private @Inject PluginConfig pluginConfig;
 
     @Override
     public void run() {
+        if (!this.bukkitAmuletsPlugin.isAmuletsEnabled()) {
+            return;
+        }
+
         for (Player player : Bukkit.getOnlinePlayers()) {
             PlayerInventory inventory = player.getInventory();
             ItemStack item = inventory.getItemInOffHand();

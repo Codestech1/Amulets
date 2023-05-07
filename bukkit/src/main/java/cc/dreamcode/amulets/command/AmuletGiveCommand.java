@@ -21,7 +21,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RequiredPlayer
-@RequiredPermission(permission = "dream-amulets.give")
+@RequiredPermission(permission = "dream.amulets.give")
 public class AmuletGiveCommand extends BukkitCommand {
 
     private @Inject BukkitAmuletsPlugin bukkitAmuletsPlugin;

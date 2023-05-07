@@ -5,6 +5,7 @@ import cc.dreamcode.amulets.command.AmuletGiveCommand;
 import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
 import cc.dreamcode.amulets.controller.AmuletsController;
+import cc.dreamcode.amulets.manager.PermanentEffectsManager;
 import cc.dreamcode.command.bukkit.BukkitCommandProvider;
 import cc.dreamcode.notice.bukkit.BukkitNoticeProvider;
 import cc.dreamcode.notice.bukkit.okaeri_serdes.BukkitNoticeSerdes;
@@ -13,6 +14,7 @@ import cc.dreamcode.platform.bukkit.DreamBukkitPlatform;
 import cc.dreamcode.platform.bukkit.component.CommandComponentResolver;
 import cc.dreamcode.platform.bukkit.component.ConfigurationComponentResolver;
 import cc.dreamcode.platform.bukkit.component.ListenerComponentResolver;
+import cc.dreamcode.platform.bukkit.component.RunnableComponentResolver;
 import cc.dreamcode.platform.component.ComponentManager;
 import eu.okaeri.configs.serdes.OkaeriSerdesPack;
 import lombok.Getter;
@@ -35,6 +37,7 @@ public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
         componentManager.registerResolver(CommandComponentResolver.class);
         componentManager.registerResolver(ListenerComponentResolver.class);
         componentManager.registerResolver(ConfigurationComponentResolver.class);
+        componentManager.registerResolver(RunnableComponentResolver.class);
 
         componentManager.registerComponent(MessageConfig.class, messageConfig ->
                 this.getInject(BukkitCommandProvider.class).ifPresent(bukkitCommandProvider -> {
@@ -42,6 +45,8 @@ public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
                     bukkitCommandProvider.setRequiredPlayerMessage(messageConfig.notPlayer);
                 }));
         componentManager.registerComponent(PluginConfig.class);
+
+        componentManager.registerComponent(PermanentEffectsManager.class);
 
         componentManager.registerComponent(AmuletsController.class);
         componentManager.registerComponent(AmuletGiveCommand.class);

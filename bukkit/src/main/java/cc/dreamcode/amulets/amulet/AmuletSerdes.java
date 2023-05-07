@@ -21,6 +21,7 @@ public class AmuletSerdes implements ObjectSerializer<Amulet> {
         data.add("id", object.getAmuletId());
         data.add("display-name", object.getAmuletDisplayName());
         data.add("itemstack", object.getItemStack());
+        data.add("permanent-effect-offhand", object.isPermanentEffectOffhand());
         data.add("amulet-effects", object.getAmuletEffects());
     }
 
@@ -29,7 +30,8 @@ public class AmuletSerdes implements ObjectSerializer<Amulet> {
         String id = data.get("id", String.class);
         String displayName = data.get("display-name", String.class);
         ItemStack itemStack = data.get("itemstack", ItemStack.class);
+        boolean permanentEffectOffhand = data.get("permanent-effect-offhand", boolean.class);
         List<PotionEffect> amuletEffectList = data.getAsList("amulet-effects", PotionEffect.class);
-        return new Amulet(id, displayName, itemStack, amuletEffectList);
+        return new Amulet(id, displayName, itemStack, permanentEffectOffhand, amuletEffectList);
     }
 }

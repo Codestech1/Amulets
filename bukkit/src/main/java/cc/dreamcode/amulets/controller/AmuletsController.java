@@ -3,6 +3,7 @@ package cc.dreamcode.amulets.controller;
 import cc.dreamcode.amulets.amulet.Amulet;
 import cc.dreamcode.amulets.config.MessageConfig;
 import cc.dreamcode.amulets.config.PluginConfig;
+import cc.dreamcode.amulets.manager.PermanentEffectsManager;
 import cc.dreamcode.utilities.builder.MapBuilder;
 import cc.dreamcode.utilities.bukkit.builder.ItemBuilder;
 import eu.okaeri.injector.annotation.Inject;
@@ -19,6 +20,7 @@ public class AmuletsController implements Listener {
 
     private @Inject PluginConfig pluginConfig;
     private @Inject MessageConfig messageConfig;
+    private @Inject PermanentEffectsManager effectsManager;
 
     @EventHandler
     public void onAmuletUse(PlayerInteractEvent event) {

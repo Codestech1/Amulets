@@ -14,7 +14,7 @@ dependencies {
 
     // -- dream-utilities --
     implementation "cc.dreamcode:utilities:1.2.10"
-    implementation "cc.dreamcode:utilities-bukkit:1.2.10"
+    implementation "cc.dreamcode:utilities-bukkit:1.2.14"
 
     // -- dream-notice --
     implementation "cc.dreamcode.notice:core:1.2.5"

@@ -53,13 +53,21 @@ public class AmuletsController implements Listener {
             return;
         }
 
+
         event.setCancelled(true);
+
         if (!bukkitAmuletsPlugin.isAmuletsEnabled()) {
             this.messageConfig.amuletsDisabledUsage.send(player);
             return;
         }
 
         Amulet amulet = optAmulet.get();
+
+        if (amulet.isPermanentEffectOffhand()) {
+            this.messageConfig.amuletsOnlyOffhand.send(player);
+            return;
+        }
+
         itemStack.setAmount(itemStack.getAmount() - 1);
         amulet.getAmuletEffects().forEach(potionEffect -> potionEffect.apply(player));
 

@@ -33,4 +33,5 @@ public class MessageConfig extends OkaeriConfig {
     public BukkitNotice amuletsDisabledBroadcast = new BukkitNotice(NoticeType.CHAT, "&cAmulety zostały wyłączone");
     public BukkitNotice amuletsEnabledBroadcast = new BukkitNotice(NoticeType.CHAT, "&aAmulety zostały włączone");
     public BukkitNotice amuletsDisabledUsage = new BukkitNotice(NoticeType.CHAT, "&cAmulety są wyłączone");
+    public BukkitNotice amuletsOnlyOffhand = new BukkitNotice(NoticeType.CHAT, "&cTen amulet jest tylko włączany, gdy jest w drugiej ręce");
 }

@@ -27,8 +27,10 @@ public class DisableAmuletsCommand extends BukkitCommand {
 
         if (enabled) {
             this.messageConfig.amuletsDisabled.send(sender);
+            this.messageConfig.amuletsDisabledBroadcast.sendAll();
         } else {
             this.messageConfig.amuletsEnabled.send(sender);
+            this.messageConfig.amuletsEnabledBroadcast.sendAll();
         }
     }
 

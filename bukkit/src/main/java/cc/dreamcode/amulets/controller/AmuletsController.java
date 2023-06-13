@@ -55,6 +55,7 @@ public class AmuletsController implements Listener {
 
         event.setCancelled(true);
         if (!bukkitAmuletsPlugin.isAmuletsEnabled()) {
+            this.messageConfig.amuletsDisabledUsage.send(player);
             return;
         }
 

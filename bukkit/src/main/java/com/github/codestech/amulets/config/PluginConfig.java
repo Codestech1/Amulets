@@ -1,6 +1,6 @@
-package cc.dreamcode.amulets.config;
+package com.github.codestech.amulets.config;
 
-import cc.dreamcode.amulets.amulet.Amulet;
+import com.github.codestech.amulets.amulet.Amulet;
 import cc.dreamcode.platform.bukkit.component.configuration.Configuration;
 import cc.dreamcode.utilities.builder.ListBuilder;
 import cc.dreamcode.utilities.bukkit.builder.ItemBuilder;

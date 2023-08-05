@@ -1,8 +1,6 @@
-main: "cc.dreamcode.amulets.BukkitAmuletsPlugin"
+main: "com.github.codestech.amulets.BukkitAmuletsPlugin"
 version: "1.0"
-name: "Dream-Amulets"
-description: "Dream-Amulets written by dreamcode.cc"
-website: "https://dreamcode.cc"
+name: "Amulets"
 author: "Codestech"
-prefix: "Dream-Amulets-Bukkit"
+prefix: "Amulets-Bukkit"
 api-version: 1.13

@@ -1,10 +1,10 @@
-package cc.dreamcode.amulets.controller;
+package com.github.codestech.amulets.controller;
 
-import cc.dreamcode.amulets.BukkitAmuletsPlugin;
-import cc.dreamcode.amulets.amulet.Amulet;
-import cc.dreamcode.amulets.config.MessageConfig;
-import cc.dreamcode.amulets.config.PluginConfig;
-import cc.dreamcode.amulets.manager.PermanentEffectsManager;
+import com.github.codestech.amulets.BukkitAmuletsPlugin;
+import com.github.codestech.amulets.amulet.Amulet;
+import com.github.codestech.amulets.config.MessageConfig;
+import com.github.codestech.amulets.config.PluginConfig;
+import com.github.codestech.amulets.manager.PermanentEffectsManager;
 import cc.dreamcode.utilities.builder.MapBuilder;
 import cc.dreamcode.utilities.bukkit.builder.ItemBuilder;
 import eu.okaeri.injector.annotation.Inject;

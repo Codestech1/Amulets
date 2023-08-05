@@ -1,4 +1,4 @@
-package cc.dreamcode.amulets.amulet;
+package com.github.codestech.amulets.amulet;
 
 import lombok.Data;
 import org.bukkit.inventory.ItemStack;

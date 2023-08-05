@@ -1,4 +1,4 @@
-package cc.dreamcode.amulets.config;
+package com.github.codestech.amulets.config;
 
 import cc.dreamcode.notice.NoticeType;
 import cc.dreamcode.notice.bukkit.BukkitNotice;

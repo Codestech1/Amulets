@@ -1,12 +1,12 @@
-package cc.dreamcode.amulets;
+package com.github.codestech.amulets;
 
-import cc.dreamcode.amulets.amulet.AmuletSerdes;
-import cc.dreamcode.amulets.command.AmuletGiveCommand;
-import cc.dreamcode.amulets.command.DisableAmuletsCommand;
-import cc.dreamcode.amulets.config.MessageConfig;
-import cc.dreamcode.amulets.config.PluginConfig;
-import cc.dreamcode.amulets.controller.AmuletsController;
-import cc.dreamcode.amulets.manager.PermanentEffectsManager;
+import com.github.codestech.amulets.amulet.AmuletSerdes;
+import com.github.codestech.amulets.command.AmuletGiveCommand;
+import com.github.codestech.amulets.command.DisableAmuletsCommand;
+import com.github.codestech.amulets.config.MessageConfig;
+import com.github.codestech.amulets.config.PluginConfig;
+import com.github.codestech.amulets.controller.AmuletsController;
+import com.github.codestech.amulets.manager.PermanentEffectsManager;
 import cc.dreamcode.command.bukkit.BukkitCommandProvider;
 import cc.dreamcode.notice.bukkit.BukkitNoticeProvider;
 import cc.dreamcode.notice.bukkit.okaeri_serdes.BukkitNoticeSerdes;

@@ -1,7 +1,7 @@
-package cc.dreamcode.amulets.command;
+package com.github.codestech.amulets.command;
 
-import cc.dreamcode.amulets.BukkitAmuletsPlugin;
-import cc.dreamcode.amulets.config.MessageConfig;
+import com.github.codestech.amulets.BukkitAmuletsPlugin;
+import com.github.codestech.amulets.config.MessageConfig;
 import cc.dreamcode.command.annotations.RequiredPermission;
 import cc.dreamcode.command.bukkit.BukkitCommand;
 import eu.okaeri.injector.annotation.Inject;

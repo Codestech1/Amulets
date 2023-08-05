@@ -1,8 +1,8 @@
-package cc.dreamcode.amulets.manager;
+package com.github.codestech.amulets.manager;
 
-import cc.dreamcode.amulets.BukkitAmuletsPlugin;
-import cc.dreamcode.amulets.amulet.Amulet;
-import cc.dreamcode.amulets.config.PluginConfig;
+import com.github.codestech.amulets.BukkitAmuletsPlugin;
+import com.github.codestech.amulets.amulet.Amulet;
+import com.github.codestech.amulets.config.PluginConfig;
 import cc.dreamcode.platform.bukkit.component.scheduler.Scheduler;
 import cc.dreamcode.utilities.bukkit.builder.ItemBuilder;
 import eu.okaeri.injector.annotation.Inject;

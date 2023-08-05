@@ -1,0 +1,35 @@
+name: Publish Snapshot
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: Validate Gradle wrapper
+      uses: gradle/wrapper-validation-action@55e685c48d84285a5b0418cd094606e199cca3b6
+    - name: Run chmod to make gradlew executable
+      run: chmod +x ./gradlew
+    - name: Build jar
+      uses: gradle/gradle-build-action@v2.3.3
+      with:
+        arguments: shadowJar
+        cache-disabled: false
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Amulets Archive
+        path: build/libs/*.jar

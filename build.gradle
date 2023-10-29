@@ -6,7 +6,7 @@ plugins {
 }
 
 allprojects {
-    group 'cc.dreamcode.amulets'
+    group 'com.github.codestech.amulets'
     version '1.0'
 
     apply plugin: 'java-library'

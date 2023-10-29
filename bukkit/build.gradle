@@ -43,28 +43,28 @@ dependencies {
 shadowJar {
     checkstyleTest
 
-    archiveFileName = "Dream-Amulets-Bukkit-${project.version}.jar"
+    archiveFileName = "Amulets-Bukkit-${project.version}.jar"
 
     minimize()
 
-    relocate "com.cryptomorin", "cc.dreamcode.amulets.libs.com.cryptomorin"
-    relocate "eu.okaeri", "cc.dreamcode.amulets.libs.eu.okaeri"
-    relocate "net.kyori", "cc.dreamcode.amulets.libs.net.kyori"
+    relocate "com.cryptomorin", "com.github.codestech.amulets.libs.com.cryptomorin"
+    relocate "eu.okaeri", "com.github.codestech.amulets.libs.eu.okaeri"
+    relocate "net.kyori", "com.github.codestech.amulets.libs.net.kyori"
 
-    relocate "cc.dreamcode.platform", "cc.dreamcode.amulets.libs.cc.dreamcode.platform"
-    relocate "cc.dreamcode.utilities", "cc.dreamcode.amulets.libs.cc.dreamcode.utilities"
-    relocate "cc.dreamcode.menu", "cc.dreamcode.amulets.libs.cc.dreamcode.menu"
-    relocate "cc.dreamcode.command", "cc.dreamcode.amulets.libs.cc.dreamcode.command"
-    relocate "cc.dreamcode.notice", "cc.dreamcode.amulets.libs.cc.dreamcode.notice"
+    relocate "cc.dreamcode.platform", "com.github.codestech.amulets.libs.cc.dreamcode.platform"
+    relocate "cc.dreamcode.utilities", "com.github.codestech.amulets.libs.cc.dreamcode.utilities"
+    relocate "cc.dreamcode.menu", "com.github.codestech.amulets.libs.cc.dreamcode.menu"
+    relocate "cc.dreamcode.command", "com.github.codestech.amulets.libs.cc.dreamcode.command"
+    relocate "cc.dreamcode.notice", "com.github.codestech.amulets.libs.cc.dreamcode.notice"
 
-    relocate "io.lettuce", "cc.dreamcode.amulets.libs.io.lettuce"
-    relocate "reactor", "cc.dreamcode.amulets.libs.reactor"
-    relocate "org.reactivestreams", "cc.dreamcode.amulets.libs.org.reactivestreams"
-    relocate "org.bson", "cc.dreamcode.amulets.libs.org.bson"
-    relocate "com.mongodb", "cc.dreamcode.amulets.libs.com.mongodb"
-    relocate "com.zaxxer", "cc.dreamcode.amulets.libs.com.zaxxer"
-    relocate "org.slf4j", "cc.dreamcode.amulets.libs.org.slf4j"
-    relocate "org.mariadb", "cc.dreamcode.amulets.libs.org.mariadb"
-    relocate "org.json", "cc.dreamcode.amulets.libs.org.json"
-    relocate "com.google.gson", "cc.dreamcode.amulets.libs.com.google.gson"
+    relocate "io.lettuce", "com.github.codestech.amulets.libs.io.lettuce"
+    relocate "reactor", "com.github.codestech.amulets.libs.reactor"
+    relocate "org.reactivestreams", "com.github.codestech.amulets.libs.org.reactivestreams"
+    relocate "org.bson", "com.github.codestech.amulets.libs.org.bson"
+    relocate "com.mongodb", "com.github.codestech.amulets.libs.com.mongodb"
+    relocate "com.zaxxer", "com.github.codestech.amulets.libs.com.zaxxer"
+    relocate "org.slf4j", "com.github.codestech.amulets.libs.org.slf4j"
+    relocate "org.mariadb", "com.github.codestech.amulets.libs.org.mariadb"
+    relocate "org.json", "com.github.codestech.amulets.libs.org.json"
+    relocate "com.google.gson", "com.github.codestech.amulets.libs.com.google.gson"
 }

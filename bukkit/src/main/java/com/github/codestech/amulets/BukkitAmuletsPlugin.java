@@ -64,7 +64,7 @@ public final class BukkitAmuletsPlugin extends DreamBukkitPlatform {
 
     @Override
     public @NonNull DreamVersion getDreamVersion() {
-        return DreamVersion.create("Dream-Amulets", "1.0", "Codestech");
+        return DreamVersion.create("Amulets", "1.0", "Codestech");
     }
 
     @Override
